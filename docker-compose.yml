@@ -1,0 +1,25 @@
+services:
+  ezneis_fastapi:
+    image: duelitdev/ezneis-fastapi:0.1.2
+    container_name: ezneis_fastapi
+    ports:
+      - "63149:63149"
+    environment:
+      - TARGET
+      - API_KEY
+    networks:
+      - ezneis_fastapi_net
+
+  ezneis_fastapi_app:
+    image: duelitdev/ezneis-fastapi-app:0.1.2
+    container_name: ezneis_fastapi_app
+    ports:
+      - "63150:63150"
+    networks:
+      - ezneis_fastapi_net
+    depends_on:
+      - ezneis_fastapi
+
+networks:
+  ezneis_fastapi_net:
+    driver: bridge
