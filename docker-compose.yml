@@ -20,6 +20,20 @@ services:
     depends_on:
       - ezneis_fastapi
 
+  ezneis_fastapi_nginx:
+    image: duelitdev/ezneis-fastapi-nginx:0.1.2
+    container_name: ezneis_fastapi_nginx
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      - DOMAIN
+    networks:
+      - ezneis_fastapi_net
+    depends_on:
+      - ezneis_fastapi
+      - ezneis_fastapi_app
+
 networks:
   ezneis_fastapi_net:
     driver: bridge
