@@ -25,7 +25,7 @@ services:
     container_name: ezneis_fastapi_nginx
     restart: always
     ports:
-      - "80:80"
+      - "8000:80"
     environment:
       - DOMAIN
     networks:
