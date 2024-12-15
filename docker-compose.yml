@@ -1,6 +1,6 @@
 services:
   ezneis_fastapi:
-    image: duelitdev/ezneis-fastapi:0.1.2
+    image: duelitdev/ezneis-fastapi:latest
     container_name: ezneis_fastapi
     ports:
       - "63149:63149"
